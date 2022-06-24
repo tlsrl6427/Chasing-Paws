@@ -1,30 +1,35 @@
 /*
 ----------------------------------------[ user ]------------------------------------------
 
+create table user
+(
+	u_idx			int,						-- User Index
+	
+	u_name		varchar2(100),		-- User Name
+	u_id			varchar2(100),		-- User Name
+	u_pwd		varchar2(100),		-- User Name
+	u_score		int,						-- User Score
+)
 
 -------------------------------------[ character ]----------------------------------------
 
 create table character
 (
-	c_idx 			int,						-- Character Index
+	c_idx 			int,						-- Character Index					*pk
 	c_name 		varchar2(30),			-- Character Name
 	c_hp			int,						-- Character Health Point
-	c_mp			int,						-- Character Mana Point
-	c_strong 		int,						-- Character Stat(Strongness)
-	c_dex 			int,						-- Character Stat(Dexterity)
-	c_int 			int,						-- Character Stat(Intelligence)
-	c_luck 		int,						-- Character Stat(Luck)
-	c_skill1 		varchar2(30),			-- Character Skill1
-	c_skill2 		varchar2(30),			-- Character Skill2
-	c_skill3		varchar2(30),			-- Character Skill3
-	c_skill4 		varchar2(30),			-- Character Skill4
-	c_skill5 		varchar2(30),			-- Character Skill5
-	i_idx1 			int,						-- Item1 								*fk
-	i_idx2 			int,						-- Item2 								*fk
-	i_idx3 			int,						-- Item3 								*fk
-	i_idx4 			int,						-- Item4 								*fk
-	i_idx5 			int,						-- Item5 								*fk
-	i_idx6 			int						-- Item6 								*fk
+	c_ad			int,						-- Character Attack Damage
+	c_ap 			int,						-- Character Ability Power
+	c_armor 		int,						-- Character Armor
+	c_critical 		int,						-- Character Critical
+	c_avd			int,						-- Character Avoidability
+	c_p_skill 		varchar2(30),			-- Character Passivie Skill
+	c_a_skill1 	varchar2(30),			-- Character Active Skill1
+	c_a_skill2 	varchar2(30),			-- Character Active Skill2
+	c_a_skill3		varchar2(30),			-- Character Active Skill3
+	c_a_skill4 	varchar2(30),			-- Character Active Skill4
+	c_a_skill5 	varchar2(30),			-- Character Active Skill5
+	c_a_skill6 	varchar2(30)			-- Character Active Skill6
 )
 
 ----------------------------------------[ item ]------------------------------------------
@@ -32,11 +37,10 @@ create table character
 create table item
 (
 	i_idx			int,						-- Item Index
+	i_category	varchar2(30),			-- Item Category(머리, 상체, 하체, 무기, 물약)
 	i_name 		varchar2(30),			-- Item Name
 	i_effect 		varchar2(30),			-- Item Effect
-	i_level			int						-- Item Level(일반, 특별, 희귀, 전설)
 )
-
 
 ----------------------------------------[ mop ]------------------------------------------
 
@@ -45,9 +49,11 @@ create table mop
 	m_idx 		int,						-- Mop Index
 	m_name 		varchar2(30),			-- Mop Name
 	m_hp 			int,						-- Mop Health Point
-	m_mp 		int,						-- Mop Mana Point
-	m_skill 		varchar2(30)			-- Mop Skill
+	m_ad			int,						-- Mop Attack Damage
+	m_skill 		varchar2(30),			-- Mop Skill
+	m_level		varchar2(30)			-- Mop Level('보스', '중간보스', '네임드', '일반')
 )
+
 
 --------------------------------------[ dungeon ]----------------------------------------
 
@@ -58,11 +64,12 @@ create table dungeon
 )
 
 
------------------------------------[ dungeon_appr ]-----------------------------------------
+-----------------------------------[ dungeon_info ]-----------------------------------------
 
-create table dungeon_appr
+-- 어떤 던전에 어떤 몹들이 출현하는지
+create table dungeon_info
 (
-	da_idx			int,						-- Dungeon Appearance Index
+	da_idx			int,						-- Dungeon_Info Index
 	d_idx			int,						-- Dungeon Index					*fk
 	m_idx			int,						-- Mop Index 						*fk
 )
