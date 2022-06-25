@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,6 +34,15 @@
 	아이디: <input type="text"><br>
 	비밀번호: <input type="password"><br>
 	<button onclick="login();">로그인</button>
-	<button onclick="signup();">회원가입</button>
+	<button onclick="signup();">회원가입</button><br>
+	
+	<b>만든이</b><br>
+	
+	<c:forEach items="${ list }" var="vo">
+		${ vo.idx }. ${vo.name}
+	</c:forEach>
+	
+	
+	
 </body>
 </html>
