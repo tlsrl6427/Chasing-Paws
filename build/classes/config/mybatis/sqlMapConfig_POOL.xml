@@ -22,7 +22,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 	
 	<mappers>
-		<mapper resource="config/mybatis/mapper/ex.xml" />
+		<mapper resource="config/mybatis/mapper/character.xml" />
+		<mapper resource="config/mybatis/mapper/dungeon.xml" />
+		<mapper resource="config/mybatis/mapper/item.xml" />
 	</mappers>
 	
 </configuration>
