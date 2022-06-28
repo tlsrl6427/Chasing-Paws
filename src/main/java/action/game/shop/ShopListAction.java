@@ -16,7 +16,7 @@ import vo.ItemVo;
 /**
  * Servlet implementation class ShopListAction
  */
-@WebServlet("/list.do")
+@WebServlet("/game/shop/list.do")
 public class ShopListAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

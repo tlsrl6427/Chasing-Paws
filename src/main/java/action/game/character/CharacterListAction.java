@@ -16,7 +16,7 @@ import vo.CharacterVo;
 /**
  * Servlet implementation class CharacterListAction
  */
-@WebServlet("/list.do")
+@WebServlet("/game/character/list.do")
 public class CharacterListAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,13 +28,13 @@ public class CharacterListAction extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		// 1. 수신 인코딩
+		// 1. �닔�떊 �씤肄붾뵫
 		request.setCharacterEncoding("utf-8");
 
-		// 2. parameter 받기
+		// 2. parameter 諛쏄린
 		int c_idx = Integer.parseInt(request.getParameter("c_idx"));
 
-		// category별 상품리스트
+		// category蹂� �긽�뭹由ъ뒪�듃
 		List<CharacterVo> list = CharacterDao.getInstance().selectList(c_idx);
 
 		// request binding

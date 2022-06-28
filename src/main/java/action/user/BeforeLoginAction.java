@@ -27,9 +27,6 @@ public class BeforeLoginAction extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		List<ExVo> list = ExDao.getInstance().selectList();
-		request.setAttribute("list", list);
-		
 		//forward
 		String forward_page = "before_login.jsp";
 		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
