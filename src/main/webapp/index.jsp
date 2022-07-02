@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/main.css">
 <script type="text/javascript">
  	var a = 0;
+ 	
 	$(function(){
 		console.log("a: "+a);
 		$.ajax({
