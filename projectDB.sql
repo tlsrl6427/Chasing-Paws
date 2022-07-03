@@ -37,7 +37,7 @@ create table character
 create table item
 (
 	i_idx			int,						-- Item Index
-	i_category	varchar2(30),			-- Item Category(¸Ó¸®, »óÃ¼, ÇÏÃ¼, ¹«±â, ¹°¾à)
+	i_category	varchar2(30),			-- Item Category('ì¼ë°˜', 'ê³ ê¸‰', 'í¬ê·€', 'ì „ì„¤')
 	i_name 		varchar2(30),			-- Item Name
 	i_effect 		varchar2(30),			-- Item Effect
 )
@@ -51,7 +51,7 @@ create table mop
 	m_hp 			int,						-- Mop Health Point
 	m_ad			int,						-- Mop Attack Damage
 	m_skill 		varchar2(30),			-- Mop Skill
-	m_level		varchar2(30)			-- Mop Level('º¸½º', 'Áß°£º¸½º', '³×ÀÓµå', 'ÀÏ¹İ')
+	m_level		varchar2(30)			-- Mop Level('ì¼ë°˜', 'ë„¤ì„ë“œ', 'ì¤‘ê°„ë³´ìŠ¤', 'ë³´ìŠ¤')
 )
 
 
@@ -66,7 +66,7 @@ create table dungeon
 
 -----------------------------------[ dungeon_info ]-----------------------------------------
 
--- ¾î¶² ´øÀü¿¡ ¾î¶² ¸÷µéÀÌ ÃâÇöÇÏ´ÂÁö
+-- ì–´ë–¤ ë˜ì „ì— ì–´ë–¤ ëª¹ì´ ë‚˜ì˜¬ì§€ì˜ ì •ë³´
 create table dungeon_info
 (
 	da_idx			int,						-- Dungeon_Info Index

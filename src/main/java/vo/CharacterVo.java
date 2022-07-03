@@ -11,12 +11,12 @@ public class CharacterVo {
 	int 	c_critical;
 	int 	c_avd;
 	String 	c_p_skill;
-	String 	c_p_skill1;
-	String 	c_p_skill2;
-	String 	c_p_skill3;
-	String 	c_p_skill4;
-	String 	c_p_skill5;
-	String 	c_p_skill6;
+	String 	c_a_skill1;
+	String 	c_a_skill2;
+	String 	c_a_skill3;
+	String 	c_a_skill4;
+	String 	c_a_skill5;
+	String 	c_a_skill6;
 
 	public int getC_idx() {
 		return c_idx;
@@ -90,52 +90,53 @@ public class CharacterVo {
 		this.c_p_skill = c_p_skill;
 	}
 
-	public String getC_p_skill1() {
-		return c_p_skill1;
+	public String getC_a_skill1() {
+		return c_a_skill1;
 	}
 
-	public void setC_p_skill1(String c_p_skill1) {
-		this.c_p_skill1 = c_p_skill1;
+	public void setC_a_skill1(String c_a_skill1) {
+		this.c_a_skill1 = c_a_skill1;
 	}
 
-	public String getC_p_skill2() {
-		return c_p_skill2;
+	public String getC_a_skill2() {
+		return c_a_skill2;
 	}
 
-	public void setC_p_skill2(String c_p_skill2) {
-		this.c_p_skill2 = c_p_skill2;
+	public void setC_a_skill2(String c_a_skill2) {
+		this.c_a_skill2 = c_a_skill2;
 	}
 
-	public String getC_p_skill3() {
-		return c_p_skill3;
+	public String getC_a_skill3() {
+		return c_a_skill3;
 	}
 
-	public void setC_p_skill3(String c_p_skill3) {
-		this.c_p_skill3 = c_p_skill3;
+	public void setC_a_skill3(String c_a_skill3) {
+		this.c_a_skill3 = c_a_skill3;
 	}
 
-	public String getC_p_skill4() {
-		return c_p_skill4;
+	public String getC_a_skill4() {
+		return c_a_skill4;
 	}
 
-	public void setC_p_skill4(String c_p_skill4) {
-		this.c_p_skill4 = c_p_skill4;
+	public void setC_a_skill4(String c_a_skill4) {
+		this.c_a_skill4 = c_a_skill4;
 	}
 
-	public String getC_p_skill5() {
-		return c_p_skill5;
+	public String getC_a_skill5() {
+		return c_a_skill5;
 	}
 
-	public void setC_p_skill5(String c_p_skill5) {
-		this.c_p_skill5 = c_p_skill5;
+	public void setC_a_skill5(String c_a_skill5) {
+		this.c_a_skill5 = c_a_skill5;
 	}
 
-	public String getC_p_skill6() {
-		return c_p_skill6;
+	public String getC_a_skill6() {
+		return c_a_skill6;
 	}
 
-	public void setC_p_skill6(String c_p_skill6) {
-		this.c_p_skill6 = c_p_skill6;
+	public void setC_a_skill6(String c_a_skill6) {
+		this.c_a_skill6 = c_a_skill6;
 	}
 
+	
 }

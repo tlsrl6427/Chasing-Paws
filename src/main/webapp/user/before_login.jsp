@@ -15,16 +15,6 @@
 <link rel="stylesheet" type="text/css" href="css/login_util.css">
 <link rel="stylesheet" type="text/css" href="css/login_main.css">
 <script type="text/javascript">
-	function login(){
-		a++;
-		console.log("a: "+a);
-		$.ajax({
-			url: 'user/after_login.do',
-			success: function(res_data){
-				$('#disp').html(res_data);
-			}
-		})
-	}
 	
 	function signup(){
 		a++;
@@ -34,7 +24,18 @@
 			success: function(res_data){
 				$('#disp').html(res_data);
 			}
-		})
+		});
+	}
+	
+	function signin(){
+		a++;
+		console.log("a: "+a);
+		$.ajax({
+			url: 'user/after_login.do',
+			success: function(res_data){
+				$('#disp').html(res_data);
+			}
+		});
 	}
 </script>
 <script type="text/javascript">
@@ -115,10 +116,10 @@
 						</div>
 						
 					<div class="container-login100-form-btn m-t-17">
-						<input type="button" class="login100-form-btn" id="join" value="Join" onclick="location.href='newpler_join.jsp'">
+						<input type="button" class="login100-form-btn" id="join" value="SignUp" onclick="signup();">
 					</div>
 					<div class="container-login100-form-btn m-t-17" align="right">
-						<input type="button" class="login100-form-btn" id="login" value="Login" onclick="send(this.form);">
+						<input type="button" class="login100-form-btn" id="login" value="Login" onclick="signin();">
 					</div>
 					<br><br><br><br><br><br><br>
 					
