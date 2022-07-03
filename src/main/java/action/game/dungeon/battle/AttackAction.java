@@ -1,9 +1,7 @@
 package action.game.dungeon.battle;
 
 import java.io.IOException;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,10 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import dao.ExDao;
 import info.character.Warrior;
 import info.mop.Mop1;
-import vo.ExVo;
 
 /**
  * Servlet implementation class BeforeLoginAction
@@ -35,6 +31,16 @@ public class AttackAction extends HttpServlet {
 		ServletContext application = request.getServletContext();
 		Warrior main_ch = (Warrior) application.getAttribute("main_ch");
 		Mop1 mop1 = (Mop1) application.getAttribute("mop1");
+		
+		String attack_method = request.getParameter("attack_method");
+		
+		if(attack_method.equals("auto_attack")) {
+			
+		}else if(attack_method.equals("a_skill1")) {
+			mop1.hp_damaged(main_ch.active_skill1());
+		}
+		
+		
 		
 		mop1.setM_hp(mop1.getM_hp()-main_ch.getC_ad());
 		main_ch.setC_hp(main_ch.getC_hp()-mop1.getM_ad()+main_ch.getC_armor());

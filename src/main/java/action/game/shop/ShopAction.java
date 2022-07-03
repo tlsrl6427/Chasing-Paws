@@ -33,10 +33,10 @@ public class ShopAction extends HttpServlet {
 		int c_idx = Integer.parseInt(request.getParameter("c_idx"));
 		if(c_idx==1) {//전사
 			//Warrior main_ch = CharacterDao.getInstance().selectOne(c_idx);
-		}else if(c_idx==2) {//법사
-			//Wizard main_ch = CharacterDao.getInstance().selectOne(c_idx);
-		}else if(c_idx==3) {//궁수
+		}else if(c_idx==2) {//궁수
 			//Archer main_ch = CharacterDao.getInstance().selectOne(c_idx);
+		}else if(c_idx==3) {//법사
+			//Wizard main_ch = CharacterDao.getInstance().selectOne(c_idx);
 		}
 		
 		Warrior main_ch = new Warrior();
