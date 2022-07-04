@@ -14,7 +14,7 @@
 	$(function(){
 		console.log("a: "+a);
 		$.ajax({
-			url: 'user/before_login.do',
+			url: 'user/login.do',
 			success: function(res_data){
 				$('#disp').html(res_data);
 			}

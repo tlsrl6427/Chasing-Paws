@@ -16,8 +16,8 @@ import vo.ExVo;
 /**
  * Servlet implementation class BeforeLoginAction
  */
-@WebServlet("/user/before_login.do")
-public class BeforeLoginAction extends HttpServlet {
+@WebServlet("/user/login.do")
+public class LoginAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -28,7 +28,7 @@ public class BeforeLoginAction extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		//forward
-		String forward_page = "before_login.jsp";
+		String forward_page = "login.jsp";
 		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
 		disp.forward(request, response);
 	}
