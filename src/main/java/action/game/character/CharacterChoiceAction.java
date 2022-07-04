@@ -23,6 +23,9 @@ public class CharacterChoiceAction extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		//캐릭터 DB에서 캐릭터 정보 가져오기
+		//캐릭터 이름, 설명, 이미지 경로
+		
 		//forward
 		String forward_page = "character_choice.jsp";
 		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
