@@ -23,6 +23,11 @@
 			}
 		})
 	}
+	
+	$("input:checkbox").click(function() {
+		var max = $("input:checkbox:checked").length >= 4;     
+		$("input:checkbox").not(":checked").attr("disabled",max);
+		});
 </script>
 </head>
 <body>
