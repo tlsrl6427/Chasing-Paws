@@ -113,7 +113,7 @@
 	</div>
 <!------------------------------------------------------------------------>
 	<div id="content">
-		<div class="limiter">
+	<div class="limiter">
 			<div class="container-login100">
 				<div class="wrap-login100 p-t-50 p-b-90">
 					<form class="login100-form validate-form flex-sb flex-w">
@@ -126,42 +126,20 @@
 								<input class="input100" type="password" name="m_pwd" id="PWD" onkeyup="enterkey();" placeholder="Password">
 								<span class="focus-input100"></span>
 							</div>
-								
-							<div class="container-login100-form-btn m-t-17">
-								<input type="button" class="login100-form-btn" id="join" value="Join" onclick="location.href='#'">
-							</div>
-							<div class="container-login100-form-btn m-t-17" align="right">
-								<input type="button" class="login100-form-btn" id="login" value="Login" onclick="send(this.form);">
-							</div>
-						<br><br><br><br><br><br><br>				
-					</form>				
-				</div>
-<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100 p-t-50 p-b-90">
-				<form class="login100-form validate-form flex-sb flex-w">
-					<span class="login100-form-title p-b-30" style="font-weight: bold;"> Login </span>
-						<div class="wrap-input100 validate-input m-b-16">
-							<input class="input100" type="text" name="m_id" id="ID" placeholder="ID" value="${ param.m_id }" onkeyup="enterkey();">
-							<span class="focus-input100"></span>
+							
+						<div class="container-login100-form-btn m-t-17">
+							<input type="button" class="login100-form-btn" id="join" value="SignUp" onclick="signup();">
 						</div>
-						<div class="wrap-input100 validate-input m-b-16">
-							<input class="input100" type="password" name="m_pwd" id="PWD" onkeyup="enterkey();" placeholder="Password">
-							<span class="focus-input100"></span>
+						<div class="container-login100-form-btn m-t-17" align="right">
+							<input type="button" class="login100-form-btn" id="login" value="Login" onclick="signin();">
 						</div>
+						<br><br><br><br><br><br><br>
 						
-					<div class="container-login100-form-btn m-t-17">
-						<input type="button" class="login100-form-btn" id="join" value="SignUp" onclick="signup();">
-					</div>
-					<div class="container-login100-form-btn m-t-17" align="right">
-						<input type="button" class="login100-form-btn" id="login" value="Login" onclick="signin();">
-					</div>
-					<br><br><br><br><br><br><br>
-					
-				</form>
+					</form>
+				</div>
 			</div>
 		</div>
-	</div>
+		</div>
 <!------------------------------------------------------------------------>
 	<div id = "footer">
 		<p style="text-align: center; color: darkgray;">Copyright 2022.Chasing Paws All rights reserved.</p>
