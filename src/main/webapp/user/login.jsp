@@ -12,11 +12,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <link rel = "stylesheet" href = "../css/login.css">
-<link rel="stylesheet" type="text/css" href="../css/header.css">
-<link rel="stylesheet" type="text/css" href="../css/footer.css">
 <link rel="stylesheet" type="text/css" href="../css/login_util.css">
 <link rel="stylesheet" type="text/css" href="../css/login_main.css">
+<link rel="stylesheet" type="text/css" href="../css/login_join_main.css">
 <link rel="stylesheet" type="text/css" href="../css/logo.css">
+
 <script type="text/javascript">
 	
 	function signup(){
@@ -107,7 +107,7 @@
 <body>
 <div id="box">
 	<div id="header">
-		<a id="header" href="main.jsp">
+		<a href="../index.jsp">
 			<img id="logo" src="../img/logo.png">
 		</a>						
 	</div>
@@ -128,7 +128,7 @@
 							</div>
 								
 							<div class="container-login100-form-btn m-t-17">
-								<input type="button" class="login100-form-btn" id="join" value="Join" onclick="location.href='#'">
+								<input type="button" class="login100-form-btn" id="join" value="Join" onclick="location.href='join.do';">
 							</div>
 							<div class="container-login100-form-btn m-t-17" align="right">
 								<input type="button" class="login100-form-btn" id="login" value="Login" onclick="send(this.form);">
