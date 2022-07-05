@@ -8,8 +8,8 @@
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
 </style>
-<link rel="stylesheet" type="text/css" href="../css/main.css">
-<link rel="stylesheet" type="text/css" href="../css/logo.css">
+<link rel="stylesheet" type="text/css" href="css/shop_main.css">
+<link rel="stylesheet" type="text/css" href="css/logo.css">
 <script type="text/javascript">
 //던전 정보 보내기
 //스테이지 넘어갈때마다 dungeon변수에 +해줘서 불러내야할 던전정보 특정하기
@@ -30,13 +30,92 @@
 <div id="box">
 <!------------------------------------------------------------------------>
 	<div id="header">
-		<a href="../index.jsp">
-			<img id="logo" src="../img/logo.png">
+		<a href="index.jsp">
+			<img id="logo" src="img/logo.png">
 		</a>						
 	</div>
 <!------------------------------------------------------------------------>
 	<div id="content">
-		
+			<div id="shop_table">
+				<table border="2">
+					<tr id="skill_point">
+						<td colspan="10">스킬포인트:</td>
+					</tr>
+					<tr>
+						<td colspan="10" id="skill_check">
+							<input id="skill" type="checkbox" name="skill" value="skill1">스킬1
+							<input id="skill" type="checkbox" name="skill" value="skill2">스킬2
+							<input id="skill" type="checkbox" name="skill" value="skill3">스킬3
+							<input id="skill" type="checkbox" name="skill" value="skill4">스킬4<br><br>
+							<input id="skill" type="checkbox" name="skill" value="skill5">스킬5
+							<input id="skill" type="checkbox" name="skill" value="skill6">스킬6
+							<input id="skill" type="checkbox" name="skill" value="skill7">스킬7
+							<input id="skill" type="checkbox" name="skill" value="skill8">스킬8<br><br>
+							<input type="button" value="스킬올려조">
+						</td>
+					</tr>
+					<tr id="inventory">
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+						<td>5</td>
+						<td>6</td>
+						<td>7</td>
+						<td>8</td>
+						<td>9</td>
+						<td>1</td>
+					</tr>
+					<tr id="inventory">
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+						<td>5</td>
+						<td>6</td>
+						<td>7</td>
+						<td>8</td>
+						<td>9</td>
+						<td>1</td>
+					</tr>
+					<tr id="inventory">
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+						<td>5</td>
+						<td>6</td>
+						<td>7</td>
+						<td>8</td>
+						<td>9</td>
+						<td>1</td>
+					</tr>
+					<tr id="inventory">
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+						<td>5</td>
+						<td>6</td>
+						<td>7</td>
+						<td>8</td>
+						<td>9</td>
+						<td>1</td>
+					</tr>
+				</table>
+			</div>
+			
+
+			<div id="random_items">
+				<img id="random1" src="img/logo.png">
+				<img id="random2" src="img/logo.png">
+				<img id="random3" src="img/logo.png"><br>
+				<input type="button" id="again" value="again(cost cookie 10)"><br>
+				<button id="next_level" onclick="dungeon();">NEXT LEVEL</button>
+			</div>
+			<div id="clear">
+			
+			</div>
 	</div>	
 <!------------------------------------------------------------------------>
 	<div id = "footer">
@@ -44,6 +123,6 @@
 	</div>
 <!------------------------------------------------------------------------>	
 </div>	
-<button onclick="dungeon();">던전 입장</button>
+
 </body>
 </html>
