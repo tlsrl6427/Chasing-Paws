@@ -22,6 +22,7 @@ create table character_info
 	c_armor 			int,						-- Character Armor
 	c_critical 			int,						-- Character Critical
 	c_avd				int,						-- Character Avoidability
+	c_damage_red 	int,						-- Character Damage Reduced
 	c_auto_attack		varchar(30),				-- Character Auto Attack
 	c_p_skill			varchar(30),			-- Character Passive
 	c_img				varchar(100)			-- Character Image
@@ -33,9 +34,10 @@ alter table character_info add column c_img varchar(255)
 create table skill
 (
 	s_idx				int auto_increment,			-- Skill Index	(*pk)
-	s_name			varchar(50),					-- Skill Name
-	s_category		varchar(30),					-- Skill Category('damage', 'cc', 'debuff', 'dot')
-	s_turn				int,								-- Skill Turn
+	s_category		varchar(30),					-- Skill Category('damage', 'buff', 'cc', 'debuff', 'dot')
+	s_val				int default 0,					-- Skill Value(스킬 수치)
+	s_turn				int,								-- Skill Turn(쿨타임)
+	s_valid			int,								-- Skill Valid(스킬이 적용되는 턴수)
 	c_idx				int								-- Character Index(*fk)	
 	PRIMARY KEY (s_idx)
 )

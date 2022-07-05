@@ -1,10 +1,44 @@
 package info.character;
 
+import java.util.List;
+
 import vo.CharacterVo;
+import vo.SkillVo;
 
 public class Warrior extends CharacterVo{
 
 	int damage_reduced = 0;// 받는 피해 감소
+	
+	SkillVo vo1 = new ActiveSkill1();
+	
+	public class ActiveSkill1 extends SkillVo{
+
+		@Override
+		public int active_skill() {
+			// TODO Auto-generated method stub
+			//어스 브레이크 10(1.5ad)
+			
+			return 10 + getC_ad() * 3 / 2;
+		}
+		
+	}
+	
+	public class ActiveSkill2 extends SkillVo{
+
+		@Override
+		public int active_skill() {
+			// TODO Auto-generated method stub
+			//러닝 크래쉬 80입히고/20받기
+			setC_hp(getC_hp()-20);
+			return 80;
+		}
+		
+	}
+	
+	public void init() {
+		vo1 = this.getSkill_vo().get(0);
+	}
+	
 	
 	public int active_skill1() {
 		//어스 브레이크 10(1.5ad)

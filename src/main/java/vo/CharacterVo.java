@@ -1,5 +1,7 @@
 package vo;
 
+import java.util.List;
+
 public class CharacterVo {
 
 	int 	c_idx;
@@ -13,12 +15,22 @@ public class CharacterVo {
 	String	c_auto_attack;
 	String 	c_p_skill;
 	
-	SkillVo skill_vo;
+	List<SkillVo> skill_vo;
 	
-	public SkillVo getSkill_vo() {
+	public SkillVo getSkill_s_idx(int s_idx) {
+		
+		SkillVo vo = new SkillVo();
+		for(SkillVo vo1 : skill_vo)
+			if(vo1.getS_idx()==s_idx)
+				vo = vo1;
+		
+		return vo;
+	}
+	
+	public List<SkillVo> getSkill_vo() {
 		return skill_vo;
 	}
-	public void setSkill_vo(SkillVo skill_vo) {
+	public void setSkill_vo(List<SkillVo> skill_vo) {
 		this.skill_vo = skill_vo;
 	}
 	public int getC_idx() {
