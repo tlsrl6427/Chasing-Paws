@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BeforeLoginAction
+ * Servlet implementation class MainAction
  */
-@WebServlet("/user/after_login.do")
-public class AfterLoginAction extends HttpServlet {
+@WebServlet("/user/main.do")
+public class MainAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -22,8 +22,9 @@ public class AfterLoginAction extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//forward
-		String forward_page = "after_login.jsp";
+
+		//forward(모든 forward는 이 구조를 갖는다)
+		String forward_page = "main.jsp";
 		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
 		disp.forward(request, response);
 	}

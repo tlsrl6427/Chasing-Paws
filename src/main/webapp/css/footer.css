@@ -1,1 +1,13 @@
 @charset "UTF-8";
+
+#footer{
+	width: 100%;
+	height: 150px;
+	background: white;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+#copyright{
+	text-align: cenrter;
+	color: darkgray;
+}

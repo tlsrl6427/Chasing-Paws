@@ -5,6 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/header.css">
+<link rel="stylesheet" type="text/css" href="css/footer.css">
+<link rel="stylesheet" type="text/css" href="css/logo.css">
 <script type="text/javascript">
 	function start(){
 		a++;
@@ -19,7 +27,25 @@
 </script>
 </head>
 <body>
-after login<br>
-<button onclick="start()">시작</button>
+<!------------------------------------------------------------------------>
+<div id="box">
+	<div id="header">
+		<a href="main.jsp">
+			<img id="logo" src="img/logo.png">
+		</a>						
+	</div>
+<!------------------------------------------------------------------------>
+	<div id="content">
+		<button onclick="start()">시작</button>
+		<button onclick="location.href='user/login.do';">로그인</button>
+	</div>	
+<!------------------------------------------------------------------------>
+	<div id = "footer">
+		<p id="copyright">Copyright 2022.Chasing Paws All rights reserved.</p>
+	</div>
+<!------------------------------------------------------------------------>			
+</div>
+
+
 </body>
 </html>
