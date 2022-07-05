@@ -23,7 +23,7 @@ public class SignUpFormAction extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//forward
-		String forward_page = "signup_form.jsp";
+		String forward_page = "join.jsp";
 		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
 		disp.forward(request, response);
 	}

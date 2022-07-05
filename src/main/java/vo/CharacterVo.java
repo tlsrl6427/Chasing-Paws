@@ -12,15 +12,15 @@ public class CharacterVo {
 	int 	c_avd;
 	String	c_auto_attack;
 	String 	c_p_skill;
-	String 	c_a_skill1;
-	String 	c_a_skill2;
-	String 	c_a_skill3;
-	String 	c_a_skill4;
-	String 	c_a_skill5;
-	String 	c_a_skill6;
-	String 	c_a_skill7;
-	String 	c_a_skill8;
 	
+	SkillVo skill_vo;
+	
+	public SkillVo getSkill_vo() {
+		return skill_vo;
+	}
+	public void setSkill_vo(SkillVo skill_vo) {
+		this.skill_vo = skill_vo;
+	}
 	public int getC_idx() {
 		return c_idx;
 	}
@@ -80,54 +80,6 @@ public class CharacterVo {
 	}
 	public void setC_p_skill(String c_p_skill) {
 		this.c_p_skill = c_p_skill;
-	}
-	public String getC_a_skill1() {
-		return c_a_skill1;
-	}
-	public void setC_a_skill1(String c_a_skill1) {
-		this.c_a_skill1 = c_a_skill1;
-	}
-	public String getC_a_skill2() {
-		return c_a_skill2;
-	}
-	public void setC_a_skill2(String c_a_skill2) {
-		this.c_a_skill2 = c_a_skill2;
-	}
-	public String getC_a_skill3() {
-		return c_a_skill3;
-	}
-	public void setC_a_skill3(String c_a_skill3) {
-		this.c_a_skill3 = c_a_skill3;
-	}
-	public String getC_a_skill4() {
-		return c_a_skill4;
-	}
-	public void setC_a_skill4(String c_a_skill4) {
-		this.c_a_skill4 = c_a_skill4;
-	}
-	public String getC_a_skill5() {
-		return c_a_skill5;
-	}
-	public void setC_a_skill5(String c_a_skill5) {
-		this.c_a_skill5 = c_a_skill5;
-	}
-	public String getC_a_skill6() {
-		return c_a_skill6;
-	}
-	public void setC_a_skill6(String c_a_skill6) {
-		this.c_a_skill6 = c_a_skill6;
-	}
-	public String getC_a_skill7() {
-		return c_a_skill7;
-	}
-	public void setC_a_skill7(String c_a_skill7) {
-		this.c_a_skill7 = c_a_skill7;
-	}
-	public String getC_a_skill8() {
-		return c_a_skill8;
-	}
-	public void setC_a_skill8(String c_a_skill8) {
-		this.c_a_skill8 = c_a_skill8;
 	}
 
 	
