@@ -10,10 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.CharacterDao;
-import info.character.Archer;
 import info.character.Warrior;
-import info.character.Wizard;
 
 /**
  * Servlet implementation class ShopAction
@@ -52,12 +49,6 @@ public class ShopAction extends HttpServlet {
 		main_ch.setC_critical(5);
 		main_ch.setC_avd(5);
 		main_ch.setC_p_skill("패시브스킬");
-		main_ch.setC_a_skill1("액티브스킬1");
-		main_ch.setC_a_skill2("액티브스킬2");
-		main_ch.setC_a_skill3("액티브스킬3");
-		main_ch.setC_a_skill4("액티브스킬4");
-		main_ch.setC_a_skill5("액티브스킬5");
-		main_ch.setC_a_skill6("액티브스킬6");
 		///////////////////////////////////////
 		
 		ServletContext application = request.getServletContext();

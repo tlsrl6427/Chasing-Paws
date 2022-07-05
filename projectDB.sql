@@ -23,18 +23,26 @@ create table character_info
 	c_critical 			int,						-- Character Critical
 	c_avd				int,						-- Character Avoidability
 	c_auto_attack		varchar(30),				-- Character Auto Attack
-	c_p_skill 			varchar(30),				-- Character Passivie Skill
-	c_a_skill1 			varchar(30),				-- Character Active Skill1
-	c_a_skill2 			varchar(30),				-- Character Active Skill2
-	c_a_skill3			varchar(30),				-- Character Active Skill3
-	c_a_skill4 			varchar(30),				-- Character Active Skill4
-	c_a_skill5 			varchar(30),				-- Character Active Skill5
-	c_a_skill6 			varchar(30),				-- Character Active Skill6
-	c_a_skill7 			varchar(30),				-- Character Active Skill7
-	c_a_skill8 			varchar(30)					-- Character Active Skill8
+	c_p_skill			varchar(30),			-- Character Passive
+	c_img				varchar(100)			-- Character Image
 )
 
 alter table character_info add column c_img varchar(255)
+----------------------------------------[ skill ]------------------------------------------
+
+create table skill
+(
+	s_idx				int auto_increment,			-- Skill Index	(*pk)
+	s_name			varchar(50),					-- Skill Name
+	s_category		varchar(30),					-- Skill Category('damage', 'cc', 'debuff', 'dot')
+	s_turn				int,								-- Skill Turn
+	c_idx				int								-- Character Index(*fk)	
+	PRIMARY KEY (s_idx)
+)
+
+alter table
+	add constraint fk_skill_c_idx foreign key(c_idx) references character_info(c_idx);
+
 
 ----------------------------------------[ item ]------------------------------------------
 
