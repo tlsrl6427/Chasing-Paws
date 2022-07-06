@@ -3,19 +3,24 @@ package vo;
 public class SkillVo {
 
 	int s_idx;
+	String s_name;
+	int s_num;
 	String s_category;
-	int s_val;
 	int s_turn;
 	int s_valid;
 	int c_idx;
 	
-	public int active_skill() {return 0;};
-	
-	public int getS_val() {
-		return s_val;
+	public String getS_name() {
+		return s_name;
 	}
-	public void setS_val(int s_val) {
-		this.s_val = s_val;
+	public void setS_name(String s_name) {
+		this.s_name = s_name;
+	}
+	public int getS_num() {
+		return s_num;
+	}
+	public void setS_num(int s_num) {
+		this.s_num = s_num;
 	}
 	public int getS_valid() {
 		return s_valid;

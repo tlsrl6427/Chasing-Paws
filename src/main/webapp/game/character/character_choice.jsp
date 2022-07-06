@@ -23,6 +23,11 @@
 </head>
 <body>
 캐릭터 선택<br>
-<button onclick="shop();">상점</button>
+<form>
+	<input type="radio" name="c_idx" value="1" checked="checked">전사<br>
+	<input type="radio" name="c_idx" value="2">궁수<br>
+	<input type="radio" name="c_idx" value="3">법사<br>
+</form>
+<button onclick="shop();">선택완료</button>
 </body>
 </html>

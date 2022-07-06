@@ -4,34 +4,28 @@
 
 
 -------------------------------------[ character ]----------------------------------------
---							idx	name	hp	ad	ap	armor critical	avd
+--										idx	name	hp	  ad	ap	 armor critical	avd
 insert into character_info values(1, '전사', 120, 10, 	 0, 	0,		0, 		5,
-							'베기', '퓨리',
-							'어스 브레이크', '러닝 크래쉬', '소울 슬래쉬', '심판의 검',
-							'아테나의 축복', '아이언 바디', '오러 블레이드', '사자후')
+							'베기', '퓨리', '');
 
 insert into character_info values(2, '궁수', 100, 8, 	 0, 	0,		10, 	5,
-							'파워 애로우', '콤보 어택',
-							'더블 애로우', '포이즌 애로우', '스카이 애로우', '차지드 애로우',
-							'블라인드', '컨퓨전', '닷지 업', '크리티컬 업')
+							'파워 애로우', '콤보 어택','');
 						
 insert into character_info values(3, '법사', 90, 5, 	 0, 	0,		0, 		15,
-							'에너지볼', '매지컬 탤런트',
-							'아이스볼트', '썬더볼트', '메테오', '리퍼',
-							'쉐도우 실드', '트랜스포트', '프로즌', '큐어링')
+							'에너지볼', '매지컬 탤런트','');
 							
 							
 ----------------------------------------[ skill ]------------------------------------------							
 
 -- Warrior
-insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('어스 브레이크', 'damage', 1, 0, 1);
-insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('러닝 크래쉬', 'damage', 1, 0, 1);
-insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('소울 슬래쉬', 'damage', 1, 0, 1);
-insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('심판의 검', 'damage', 4, 0, 1);
-insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('아테나의 축복', 'buff', 1, 5, 1);
-insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('아이언 바디', 'buff', 1, 5, 1);
-insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('오러 블레이드', 'dot', 1, 5, 1);
-insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('사자후', 'debuff', 1, 5, 1);
+insert into skill(s_name, s_num, s_category, s_turn, s_valid, c_idx) values('어스 브레이크', 1, 'damage', 1, 0, 1);
+insert into skill(s_name, s_num, s_category, s_turn, s_valid, c_idx) values('러닝 크래쉬', 2, 'damage', 1, 0, 1);
+insert into skill(s_name, s_num, s_category, s_turn, s_valid, c_idx) values('소울 슬래쉬', 3, 'damage', 1, 0, 1);
+insert into skill(s_name, s_num, s_category, s_turn, s_valid, c_idx) values('심판의 검', 4, 'damage', 4, 0, 1);
+insert into skill(s_name, s_num, s_category, s_turn, s_valid, c_idx) values('아테나의 축복', 5, 'buff', 1, 5, 1);
+insert into skill(s_name, s_num, s_category, s_turn, s_valid, c_idx) values('아이언 바디', 6, 'buff', 1, 5, 1);
+insert into skill(s_name, s_num, s_category, s_turn, s_valid, c_idx) values('오러 블레이드', 7, 'dot', 1, 5, 1);
+insert into skill(s_name, s_num, s_category, s_turn, s_valid, c_idx) values('사자후', 8, 'debuff', 1, 5, 1);
 
 -- Archer
 insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('더블 애로우', 'damage', 1, 0, 2);
@@ -50,7 +44,7 @@ insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('메테오'
 insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('리퍼', 'damage', 4, 0, 3);
 insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('쉐도우 실드', 'buff', 1, 3, 3);
 insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('트랜스포트', 'damage', 1, 1, 3);
-insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('프로즌', 'debuff', 1, 1, 3);
+insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('프로즌', 'cc', 1, 1, 3);
 insert into skill(s_name, s_category, s_turn, s_valid, c_idx) values('큐어링', 'buff', 1, 1, 3);
 
 				

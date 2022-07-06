@@ -13,6 +13,7 @@ import org.json.simple.JSONObject;
 
 import info.character.Warrior;
 import info.mop.Mop1;
+import vo.MopVo;
 import vo.SkillVo;
 
 /**
@@ -32,13 +33,14 @@ public class AttackAction extends HttpServlet {
 
 		ServletContext application = request.getServletContext();
 		Warrior main_ch = (Warrior) application.getAttribute("main_ch");
-		Mop1 mop1 = (Mop1) application.getAttribute("mop1");
+		MopVo mop1 = (MopVo) application.getAttribute("mop");
 
 		int s_idx = Integer.parseInt(request.getParameter("s_idx"));// 스킬이 s_idx로 들어와야함
 		
 		boolean is_buff = mop1.skilled_by_character(s_idx, main_ch);
+		
 		if(is_buff==true) {
-			
+			main_ch.buff_skill(s_idx);
 		}
 		
 //		  if(attack_method.equals("auto_attack")) {

@@ -14,19 +14,74 @@ public class CharacterVo {
 	int 	c_avd;
 	String	c_auto_attack;
 	String 	c_p_skill;
+	String c_img;
 	
 	List<SkillVo> skill_vo;
+	
+	int active_skill1_level =0;
+	int active_skill2_level =0;
+	int active_skill3_level =0;
+	int active_skill4_level =0;
+	int active_skill5_level =0;
+	int active_skill6_level =0;
+	int active_skill7_level =0;
+	int active_skill8_level =0;
+	
+	int damage_reduced = 0;// 받는 피해 감소
+	
+	public int active_skill1() {return 0;}
+	public int active_skill2() {return 0;}
+	public int active_skill3() {return 0;}
+	public int active_skill4() {return 0;}
+	public int active_skill5() {return 0;}
+	public int active_skill6() {return 0;}
+	public int active_skill7() {return 0;}
+	public int active_skill8() {return 0;}
+	
+	public void buff_skill(int s_idx) {
+		skill_mapping(s_idx);
+	}
+	
+	public int skill_mapping(int s_idx) {
+		
+			SkillVo vo = getSkill_s_idx(s_idx);
+			switch(vo.getS_num()) {
+				case 1: return active_skill1();
+				case 2: return active_skill2();
+				case 3: return active_skill3();
+				case 4: return active_skill4();
+				case 5: return active_skill5();
+				case 6: return active_skill6();
+				case 7: return active_skill7();
+				case 8: return active_skill8();
+				default: return 0;
+			}
+		
+	}
 	
 	public SkillVo getSkill_s_idx(int s_idx) {
 		
 		SkillVo vo = new SkillVo();
-		for(SkillVo vo1 : skill_vo)
+		for(SkillVo vo1: skill_vo)
 			if(vo1.getS_idx()==s_idx)
 				vo = vo1;
-		
 		return vo;
 	}
 	
+	
+	
+	public String getC_img() {
+		return c_img;
+	}
+	public void setC_img(String c_img) {
+		this.c_img = c_img;
+	}
+	public int getDamage_reduced() {
+		return damage_reduced;
+	}
+	public void setDamage_reduced(int damage_reduced) {
+		this.damage_reduced = damage_reduced;
+	}
 	public List<SkillVo> getSkill_vo() {
 		return skill_vo;
 	}

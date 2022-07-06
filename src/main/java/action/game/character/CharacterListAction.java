@@ -35,10 +35,10 @@ public class CharacterListAction extends HttpServlet {
 		int c_idx = Integer.parseInt(request.getParameter("c_idx"));
 
 		// category蹂� �긽�뭹由ъ뒪�듃
-		List<CharacterVo> list = CharacterDao.getInstance().selectList(c_idx);
+		//List<CharacterVo> list = CharacterDao.getInstance().selectOne(c_idx);
 
 		// request binding
-		request.setAttribute("list", list);
+		//request.setAttribute("list", list);
 
 		// foward
 		String forward_page = "character_choice.jsp";

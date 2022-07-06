@@ -34,21 +34,21 @@ public class CharacterDao {
 		factory = MyBatisConnector.getInstance().getSqlSessionFactory();
 	}
 
-	public List<CharacterVo> selectList(int c_idx) {
+	public CharacterVo selectOne(int c_idx) {
 		// TODO Auto-generated method stub
 
-		List<CharacterVo> list = null;
+		CharacterVo vo = null;
 
 		// 1. SqlSession 얻어오기
 		SqlSession sqlSession = factory.openSession();
 
 		// 2. 실행
-		list = sqlSession.selectList("character.character_list", c_idx);
+		vo = sqlSession.selectOne("character.character_one", c_idx);
 
 		// 3. session close
 		sqlSession.close();
 
-		return list;
+		return vo;
 	}
 
 }
