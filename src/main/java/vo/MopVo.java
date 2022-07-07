@@ -12,12 +12,19 @@ public class MopVo {
 
 	int dot_damage = 0;// 도트뎀
 	int dot_damage_turn = 0;// 도트뎀 턴수
-	int blind_cc_turn = 0; // 블라인드 cc기 걸린 턴수
-	int confusion_cc_turn = 0;// 컨퓨전 cc기 걸린 턴수
-	int frozen_cc_turn = 0;// 프로즌 cc기 걸린 턴수
+	int cc_turn = 0;
 	
+//	int blind_cc_turn = 0; // 블라인드 cc기 걸린 턴수
+//	int confusion_cc_turn = 0;// 컨퓨전 cc기 걸린 턴수
+//	int frozen_cc_turn = 0;// 프로즌 cc기 걸린 턴수
+//	
 	public boolean skilled_by_character(int s_idx, CharacterVo main_ch) {
 			
+			if(s_idx==0) {
+				this.m_hp = this.m_hp - main_ch.getC_ad() + this.m_armor;
+				return false;
+			}
+		
 			SkillVo vo = main_ch.getSkill_s_idx(s_idx);//카테고리 구하기위함
 			int skill_val = main_ch.skill_mapping(s_idx);// 실제 스킬 함수
 			
@@ -26,19 +33,35 @@ public class MopVo {
 			}else if(vo.getS_category().equals("buff")){
 				return true;
 			}else if(vo.getS_category().equals("cc")){
-				
+				this.cc_turn += skill_val /100000;
 			}else if(vo.getS_category().equals("debuff")){
 				if(skill_val/10000==1) {//사자후
 					this.m_ad-=skill_val;
 					this.m_armor-=skill_val;
 				}
 			}else if(vo.getS_category().equals("dot")){
-				this.dot_damage += skill_val;
+				this.dot_damage += skill_val%1000;
+				this.dot_damage_turn += skill_val/1000;
+			}
+			
+			//도트뎀
+			if(dot_damage_turn!=0){
+				this.m_hp-=dot_damage;
+				dot_damage_turn--;
 			}
 			return false;
 	}
 
 	
+	
+	public int getCc_turn() {
+		return cc_turn;
+	}
+
+	public void setCc_turn(int cc_turn) {
+		this.cc_turn = cc_turn;
+	}
+
 	public int getDot_damage() {
 		return dot_damage;
 	}
@@ -57,27 +80,6 @@ public class MopVo {
 	public void setDot_damage_turn(int dot_damage_turn) {
 		this.dot_damage_turn = dot_damage_turn;
 	}
-
-
-	public int getBlind_cc_turn() {
-		return blind_cc_turn;
-	}
-
-
-	public void setBlind_cc_turn(int blind_cc_turn) {
-		this.blind_cc_turn = blind_cc_turn;
-	}
-
-
-	public int getFrozen_cc_turn() {
-		return frozen_cc_turn;
-	}
-
-
-	public void setFrozen_cc_turn(int frozen_cc_turn) {
-		this.frozen_cc_turn = frozen_cc_turn;
-	}
-
 
 	public int getM_armor() {
 		return m_armor;

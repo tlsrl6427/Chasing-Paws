@@ -33,25 +33,28 @@ public class AttackAction extends HttpServlet {
 
 		ServletContext application = request.getServletContext();
 		Warrior main_ch = (Warrior) application.getAttribute("main_ch");
-		MopVo mop1 = (MopVo) application.getAttribute("mop");
-
+		MopVo mop1 = (MopVo) application.getAttribute("mop1");
+		
 		int s_idx = Integer.parseInt(request.getParameter("s_idx"));// 스킬이 s_idx로 들어와야함
-		
-		boolean is_buff = mop1.skilled_by_character(s_idx, main_ch);
-		
-		if(is_buff==true) {
-			main_ch.buff_skill(s_idx);
+		int origin_mop_hp = mop1.getM_hp();
+		int origin_main_ch_hp = main_ch.getC_hp();
+	
+		//cc걸렸는지 먼저 보기
+		if(mop1.getCc_turn()!=0) {
+			mop1.setCc_turn(mop1.getCc_turn()-1);
+		}else {
+			//캐릭터에게 피해 입히기
+			boolean mop_is_buff = main_ch.skilled_by_mop(mop1);
+			if(mop_is_buff==true) {//몬스터 자버프
+				
+			}
 		}
 		
-//		  if(attack_method.equals("auto_attack")) {
-//		  
-//		  }else if(attack_method.equals("a_skill1")) {
-//			  
-//		  }
-		 
-
-		mop1.setM_hp(mop1.getM_hp() - main_ch.getC_ad());
-		main_ch.setC_hp(main_ch.getC_hp() - mop1.getM_ad() + main_ch.getC_armor());
+		//몬스터에게 피해 입히기
+		boolean main_ch_is_buff = mop1.skilled_by_character(s_idx, main_ch);
+		if(main_ch_is_buff==true) {//캐릭터 자버프
+			main_ch.buff_skill(s_idx);
+		}
 
 		application.removeAttribute("main_ch");
 		application.removeAttribute("mop1");
@@ -62,9 +65,19 @@ public class AttackAction extends HttpServlet {
 		JSONObject json = new JSONObject();
 		json.put("main_ch_hp", main_ch.getC_hp());
 		json.put("mop1_hp", mop1.getM_hp());
-		json.put("main_ch_damage", main_ch.getC_ad());
-		json.put("mop1_damage", main_ch.getC_armor() - mop1.getM_ad());
-
+		json.put("main_ch_damage", origin_mop_hp - mop1.getM_hp());
+		json.put("mop1_damage", origin_main_ch_hp - main_ch.getC_hp());
+		
+		json.put("main_ch_ad", main_ch.getC_ad());
+		json.put("main_ch_ap", main_ch.getC_ap());
+		json.put("main_ch_armor", main_ch.getC_armor());
+		json.put("main_ch_critical", main_ch.getC_critical());
+		json.put("main_ch_avd", main_ch.getC_avd());
+		
+		json.put("mop_ad", mop1.getM_ad());
+		json.put("mop_armor", mop1.getM_armor());
+		
+		
 		response.setContentType("text/json; charset=utf-8;");
 		response.getWriter().print(json.toJSONString());
 	}
