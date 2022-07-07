@@ -28,6 +28,7 @@ public class CharacterVo {
 	int active_skill8_level =0;
 	
 	int damage_reduced = 0;// 받는 피해 감소
+	int damage_reduced_turn = 0;// 받는 피해 감소 턴수
 	
 	public int active_skill1() {return 0;}
 	public int active_skill2() {return 0;}
@@ -37,6 +38,11 @@ public class CharacterVo {
 	public int active_skill6() {return 0;}
 	public int active_skill7() {return 0;}
 	public int active_skill8() {return 0;}
+	
+	public boolean skilled_by_mop(MopVo mop) {
+		this.c_hp = this.c_hp - mop.getM_ad() + this.getC_armor();
+		return false;
+	}
 	
 	public void buff_skill(int s_idx) {
 		skill_mapping(s_idx);
@@ -70,6 +76,12 @@ public class CharacterVo {
 	
 	
 	
+	public int getDamage_reduced_turn() {
+		return damage_reduced_turn;
+	}
+	public void setDamage_reduced_turn(int damage_reduced_turn) {
+		this.damage_reduced_turn = damage_reduced_turn;
+	}
 	public String getC_img() {
 		return c_img;
 	}
