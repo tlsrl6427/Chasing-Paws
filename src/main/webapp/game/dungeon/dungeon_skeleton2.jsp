@@ -51,20 +51,22 @@
 			data: {'s_idx': s_idx},
 			dataType: 'json',
 			success: function(res_data){
-				alert(res_data.main_ch_damage+"의 피해를 입혔습니다");
-				alert(res_data.mop1_damage+"의 피해를 입었습니다");
-				$('#main_ch_hp').html('hp: '+ res_data.main_ch_hp);
-				$('#mop1_hp').html('hp: '+ res_data.mop1_hp);
+				alert("!!!");
+				alert(res_data.attack_info.damage+"의 피해를 입혔습니다");
+				alert(res_data.attack_info.damage+"의 피해를 입었습니다");
+				$('#main_ch_hp').html('hp: '+ res_data.main_ch.c_hp);
+				$('#mop1_hp').html('hp: '+ res_data.mop1.m_hp);
 				
 				//스탯
-				$('#main_ch_ad').html('hp: '+ res_data.main_ch_ad);
-				$('#main_ch_ap').html('hp: '+ res_data.main_ch_ap);
-				$('#main_ch_armor').html('hp: '+ res_data.main_ch_armor);
-				$('#main_ch_critical').html('hp: '+ res_data.main_ch_critical);
-				$('#main_ch_avd').html('hp: '+ res_data.main_ch_avd);
+				$('#main_ch_ad').html('ad: '+ res_data.main_ch.c_ad);
+				$('#main_ch_ap').html('ap: '+ res_data.main_ch.c_ap);
+				$('#main_ch_armor').html('armor: '+ res_data.main_ch.c_armor+"(피해감소 "+ Math.round(100-5000/(res_data.main_ch.c_armor+50)) +"%)");
+				$('#main_ch_critical').html('critical: '+ res_data.main_ch.c_critical);
+				$('#main_ch_avd').html('avd: '+ res_data.main_ch.c_avd);
 				
-				$('#mop1_ad').html('hp: '+ res_data.mop1_ad);
-				$('#mop1_armor').html('hp: '+ res_data.mop1_armor);
+				$('#mop1_ad').html('hp: '+ res_data.mop1.m_ad);
+				$('#mop1_armor').html('hp: '+ res_data.mop1.m_armor);
+				
 			}
 		});
 	}
@@ -79,11 +81,11 @@
 		<li>idx: ${ main_ch.c_idx }</li>
 		<li>name: ${ main_ch.c_name }</li>
 		<li id="main_ch_hp">hp: ${ main_ch.c_hp }</li>
-		<li>ad: ${ main_ch.c_ad }</li>
-		<li>ap: ${ main_ch.c_ap }</li>
-		<li>armor: ${ main_ch.c_armor }</li>
-		<li>critical: ${ main_ch.c_critical }</li>
-		<li>avd: ${ main_ch.c_avd }</li>
+		<li id="main_ch_ad">ad: ${ main_ch.c_ad }</li>
+		<li id="main_ch_ap">ap: ${ main_ch.c_ap }</li>
+		<li id="main_ch_armor">armor: ${ main_ch.c_armor }(피해감소 ${ 100-5000/(main_ch.c_armor+50) }%)</li>
+		<li id="main_ch_critical">critical: ${ main_ch.c_critical }</li>
+		<li id="main_ch_avd">avd: ${ main_ch.c_avd }</li>
 		<li>auto_attack: ${ main_ch.c_auto_attack }</li>
 		<li>p_skill: ${ main_ch.c_p_skill }</li>
 		

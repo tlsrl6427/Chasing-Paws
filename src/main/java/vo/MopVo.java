@@ -1,5 +1,7 @@
 package vo;
 
+import java.util.Map;
+
 public class MopVo {
 
 	int 	m_idx;
@@ -18,38 +20,8 @@ public class MopVo {
 //	int confusion_cc_turn = 0;// 컨퓨전 cc기 걸린 턴수
 //	int frozen_cc_turn = 0;// 프로즌 cc기 걸린 턴수
 //	
-	public boolean skilled_by_character(int s_idx, CharacterVo main_ch) {
-			
-			if(s_idx==0) {
-				this.m_hp = this.m_hp - main_ch.getC_ad() + this.m_armor;
-				return false;
-			}
+	public void attack_character(CharacterVo main_ch) {
 		
-			SkillVo vo = main_ch.getSkill_s_idx(s_idx);//카테고리 구하기위함
-			int skill_val = main_ch.skill_mapping(s_idx);// 실제 스킬 함수
-			
-			if(vo.getS_category().equals("damage")){
-				this.m_hp -= skill_val;
-			}else if(vo.getS_category().equals("buff")){
-				return true;
-			}else if(vo.getS_category().equals("cc")){
-				this.cc_turn += skill_val /100000;
-			}else if(vo.getS_category().equals("debuff")){
-				if(skill_val/10000==1) {//사자후
-					this.m_ad-=skill_val;
-					this.m_armor-=skill_val;
-				}
-			}else if(vo.getS_category().equals("dot")){
-				this.dot_damage += skill_val%1000;
-				this.dot_damage_turn += skill_val/1000;
-			}
-			
-			//도트뎀
-			if(dot_damage_turn!=0){
-				this.m_hp-=dot_damage;
-				dot_damage_turn--;
-			}
-			return false;
 	}
 
 	

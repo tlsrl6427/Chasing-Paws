@@ -1,5 +1,6 @@
 package action.game.dungeon.battle;
 
+import java.awt.List;
 import java.io.IOException;
 
 import javax.servlet.ServletContext;
@@ -13,6 +14,7 @@ import org.json.simple.JSONObject;
 
 import info.character.Warrior;
 import info.mop.Mop1;
+import vo.AttackVo;
 import vo.MopVo;
 import vo.SkillVo;
 
@@ -40,21 +42,18 @@ public class AttackAction extends HttpServlet {
 		int origin_main_ch_hp = main_ch.getC_hp();
 	
 		//cc걸렸는지 먼저 보기
+		/*
 		if(mop1.getCc_turn()!=0) {
 			mop1.setCc_turn(mop1.getCc_turn()-1);
 		}else {
 			//캐릭터에게 피해 입히기
-			boolean mop_is_buff = main_ch.skilled_by_mop(mop1);
-			if(mop_is_buff==true) {//몬스터 자버프
-				
-			}
+			mop1.attack_character(main_ch);
 		}
+		*/
 		
+		AttackVo attack_mop_vo = new AttackVo();
 		//몬스터에게 피해 입히기
-		boolean main_ch_is_buff = mop1.skilled_by_character(s_idx, main_ch);
-		if(main_ch_is_buff==true) {//캐릭터 자버프
-			main_ch.buff_skill(s_idx);
-		}
+		main_ch.attack_mop(mop1, attack_mop_vo, s_idx);
 
 		application.removeAttribute("main_ch");
 		application.removeAttribute("mop1");
@@ -63,6 +62,7 @@ public class AttackAction extends HttpServlet {
 		application.setAttribute("mop1", mop1);
 
 		JSONObject json = new JSONObject();
+		/*
 		json.put("main_ch_hp", main_ch.getC_hp());
 		json.put("mop1_hp", mop1.getM_hp());
 		json.put("main_ch_damage", origin_mop_hp - mop1.getM_hp());
@@ -76,7 +76,22 @@ public class AttackAction extends HttpServlet {
 		
 		json.put("mop_ad", mop1.getM_ad());
 		json.put("mop_armor", mop1.getM_armor());
+		*/
+		System.out.println("damage: " + attack_mop_vo.getDamage());
+		System.out.println("self_damage: " + attack_mop_vo.getSelf_damage());
+		System.out.println("damage_reduced: " + attack_mop_vo.getDamage_reduced());
+		System.out.println("ad_increased: " + attack_mop_vo.getAd_increased());
+		System.out.println("armor_increased: " + attack_mop_vo.getArmor_increased());
+		System.out.println("ad_reduced: " + attack_mop_vo.getAd_reduced());
+		System.out.println("armor_reduced: " + attack_mop_vo.getArmor_reduced());
+		System.out.println("dot_damage: " + attack_mop_vo.getDot_damage());
+		System.out.println("dot_damage_turn: " + attack_mop_vo.getDot_damage_turn());
+		System.out.println("cc_turn: " + attack_mop_vo.getCc_turn());
+		System.out.println("cc_name: " + attack_mop_vo.getCc_name());
 		
+		json.put("main_ch", main_ch);
+		json.put("mop1", mop1);
+		json.put("attack_info", attack_mop_vo);
 		
 		response.setContentType("text/json; charset=utf-8;");
 		response.getWriter().print(json.toJSONString());

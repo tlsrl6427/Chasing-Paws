@@ -1,6 +1,7 @@
 package vo;
 
 import java.util.List;
+import java.util.Map;
 
 public class CharacterVo {
 
@@ -30,39 +31,70 @@ public class CharacterVo {
 	int damage_reduced = 0;// 받는 피해 감소
 	int damage_reduced_turn = 0;// 받는 피해 감소 턴수
 	
-	public int active_skill1() {return 0;}
-	public int active_skill2() {return 0;}
-	public int active_skill3() {return 0;}
-	public int active_skill4() {return 0;}
-	public int active_skill5() {return 0;}
-	public int active_skill6() {return 0;}
-	public int active_skill7() {return 0;}
-	public int active_skill8() {return 0;}
+	public void active_skill1(MopVo mopVo, AttackVo attack_mop_vo) {}
+	public void active_skill2(MopVo mopVo, AttackVo attack_mop_vo) {}
+	public void active_skill3(MopVo mopVo, AttackVo attack_mop_vo) {}
+	public void active_skill4(MopVo mopVo, AttackVo attack_mop_vo) {}
+	public void active_skill5(MopVo mopVo, AttackVo attack_mop_vo) {}
+	public void active_skill6(MopVo mopVo, AttackVo attack_mop_vo) {}
+	public void active_skill7(MopVo mopVo, AttackVo attack_mop_vo) {}
+	public void active_skill8(MopVo mopVo, AttackVo attack_mop_vo) {}
 	
-	public boolean skilled_by_mop(MopVo mop) {
-		this.c_hp = this.c_hp - mop.getM_ad() + this.getC_armor();
-		return false;
-	}
-	
-	public void buff_skill(int s_idx) {
-		skill_mapping(s_idx);
-	}
-	
-	public int skill_mapping(int s_idx) {
+	public void attack_mop(MopVo mopVo, AttackVo attack_mop_vo, int s_idx) {
 		
-			SkillVo vo = getSkill_s_idx(s_idx);
-			switch(vo.getS_num()) {
-				case 1: return active_skill1();
-				case 2: return active_skill2();
-				case 3: return active_skill3();
-				case 4: return active_skill4();
-				case 5: return active_skill5();
-				case 6: return active_skill6();
-				case 7: return active_skill7();
-				case 8: return active_skill8();
-				default: return 0;
+		SkillVo vo = getSkill_s_idx(s_idx);
+		switch(vo.getS_num()) {
+			case 1: active_skill1(mopVo, attack_mop_vo); break;
+			case 2: active_skill2(mopVo, attack_mop_vo); break;
+			case 3: active_skill3(mopVo, attack_mop_vo); break;
+			case 4: active_skill4(mopVo, attack_mop_vo); break;
+			case 5: active_skill5(mopVo, attack_mop_vo); break;
+			case 6: active_skill6(mopVo, attack_mop_vo); break;
+			case 7: active_skill7(mopVo, attack_mop_vo); break;
+			case 8: active_skill8(mopVo, attack_mop_vo); break;
+			default: break;
+		}
+		
+		/*
+		if(s_idx==0) {
+			mop.setM_hp(mop.getM_hp() - this.getC_ad() * ( 5000 / ( 50 + mop.getM_armor() ) ));
+			map.put("평타피해", this.getC_ad() * ( 5000 / ( 50 + mop.m_armor ) ));
+		}
+	
+		SkillVo vo = this.getSkill_s_idx(s_idx);//카테고리 구하기위함
+		skill_mapping(s_idx, attack_mop_vo);
+		
+		if(vo.getS_category().equals("damage")){
+			int skill_val = this.skill_mapping(s_idx);// 실제 스킬 함수
+			mop.setM_hp(mop.getM_hp() - skill_val * ( 5000 / ( 50 + mop.getM_armor() ) ) );
+			//map.put("스킬피해", skill_val);
+		}else if(vo.getS_category().equals("buff")){
+			int skill_idx = this.skill_mapping(s_idx);// 실제 스킬 함수
+			
+			map.put("버프", );
+			
+		}else if(vo.getS_category().equals("cc")){
+			int skill_val = main_ch.skill_mapping(s_idx);// 실제 스킬 함수
+			this.cc_turn += skill_val /100000;
+		}else if(vo.getS_category().equals("debuff")){
+			int skill_val = main_ch.skill_mapping(s_idx);// 실제 스킬 함수
+			if(skill_val/10000==1) {//사자후
+				this.m_ad-=skill_val;
+				this.m_armor-=skill_val;
+				map.put("디버프", skill_val);
 			}
+		}else if(vo.getS_category().equals("dot")){
+			this.dot_damage += skill_val%1000;
+			this.dot_damage_turn += skill_val/1000;
+		}
 		
+		//도트뎀
+		if(dot_damage_turn!=0){
+			this.m_hp-=dot_damage;
+			dot_damage_turn--;
+		}
+		return map;
+		*/
 	}
 	
 	public SkillVo getSkill_s_idx(int s_idx) {
