@@ -2,9 +2,11 @@ package vo;
 
 public class AttackVo {
 
+	String name;
 	int damage;
 	int self_damage;
 	int damage_reduced;
+	int damage_reduced_turn;
 	int ad_increased;
 	int armor_increased;
 	int ad_reduced;
@@ -13,8 +15,26 @@ public class AttackVo {
 	int dot_damage_turn;
 	int cc_turn;
 	String cc_name;
+	String battle_info;
 	
-	
+	public String getBattle_info() {
+		return battle_info;
+	}
+	public void setBattle_info(String battle_info) {
+		this.battle_info = battle_info;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getDamage_reduced_turn() {
+		return damage_reduced_turn;
+	}
+	public void setDamage_reduced_turn(int damage_reduced_turn) {
+		this.damage_reduced_turn = damage_reduced_turn;
+	}
 	public int getSelf_damage() {
 		return self_damage;
 	}

@@ -17,8 +17,12 @@
 	#btns{
 		clear: both;
 	}
+	#text_box{
+		float: left;
+	}
 </style>
 <script type="text/javascript">
+	
 	function choice(){
 		a++;
 		console.log("a: "+a);
@@ -40,7 +44,7 @@
 				alert(res_data.main_ch_damage+"의 피해를 입혔습니다");
 				alert(res_data.mop1_damage+"의 피해를 입었습니다");
 				$('#main_ch_hp').html('hp: '+ res_data.main_ch_hp);
-				$('#mop1_hp').html('hp: '+ res_data.mop1_hp);
+				$('#mop_hp').html('hp: '+ res_data.mop_hp);
 			}
 		})
 	}
@@ -51,22 +55,45 @@
 			data: {'s_idx': s_idx},
 			dataType: 'json',
 			success: function(res_data){
-				alert("!!!");
-				alert(res_data.attack_info.damage+"의 피해를 입혔습니다");
-				alert(res_data.attack_info.damage+"의 피해를 입었습니다");
-				$('#main_ch_hp').html('hp: '+ res_data.main_ch.c_hp);
-				$('#mop1_hp').html('hp: '+ res_data.mop1.m_hp);
+				
+				$('#main_ch_hp').html('hp: '+ res_data.main_ch_hp);
+				$('#mop_hp').html('hp: '+ res_data.mop_hp);
 				
 				//스탯
-				$('#main_ch_ad').html('ad: '+ res_data.main_ch.c_ad);
-				$('#main_ch_ap').html('ap: '+ res_data.main_ch.c_ap);
-				$('#main_ch_armor').html('armor: '+ res_data.main_ch.c_armor+"(피해감소 "+ Math.round(100-5000/(res_data.main_ch.c_armor+50)) +"%)");
-				$('#main_ch_critical').html('critical: '+ res_data.main_ch.c_critical);
-				$('#main_ch_avd').html('avd: '+ res_data.main_ch.c_avd);
+				$('#main_ch_ad').html('ad: '+ res_data.main_ch_ad);
+				$('#main_ch_ap').html('ap: '+ res_data.main_ch_ap);
+				$('#main_ch_armor').html('armor: '+ res_data.main_ch_armor+"(피해감소 "+ Math.round(100-5000/(res_data.main_ch_armor+50)) +"%)");
+				$('#main_ch_critical').html('critical: '+ res_data.main_ch_critical);
+				$('#main_ch_avd').html('avd: '+ res_data.main_ch_avd);
 				
-				$('#mop1_ad').html('hp: '+ res_data.mop1.m_ad);
-				$('#mop1_armor').html('hp: '+ res_data.mop1.m_armor);
+				$('#mop_ad').html('ad: '+ res_data.mop_ad);
+				$('#mop_armor').html('armor: '+ res_data.mop_armor);
 				
+				var content = $("#txt").val();
+				content = content  + res_data.attack_mop_info + "\n"
+											+	res_data.attack_main_ch_info + "\n";
+				$("#txt").html(content); 
+				
+				if(typeof res_data.extra_skill_main_ch != "undefined"){
+					$("#txt").css("color", "red");
+					var content2 = $("#txt").val();
+					content2 = content2  + res_data.extra_skill_main_ch + "\n"
+					$("#txt").html(content2); 
+					
+					$("#txt").css("color", "black");
+				}
+				
+				if(typeof res_data.extra_skill_mop != "undefined"){
+					$("#txt").css("color", "red");
+					var content3 = $("#txt").val();
+					content3 = content3  + res_data.extra_skill_mop + "\n"
+					$("#txt").html(content3); 
+					
+					$("#txt").css("color", "black");
+				}
+				var content0 = $("#txt").val();
+				content0 = content0  + "--------------------------------------------------------------\n";
+				$("#txt").html(content0); 
 			}
 		});
 	}
@@ -99,14 +126,19 @@
 		<li><button onclick="skill(${ main_ch.skill_vo[7].s_idx });">a_skill8: ${ main_ch.skill_vo[7].s_name }</button></li>
 	</ul>
 	
+	<div id="text_box">
+		<textarea id="txt" rows="20" cols="80"></textarea>
+	</div>
+	
 	<ul id="mop">
 		<li>몹 정보</li>
-		<li>idx: ${ mop1.m_idx }</li>
-		<li>name: ${ mop1.m_name }</li>
-		<li id="mop1_hp">hp: ${ mop1.m_hp }</li>
-		<li>ad: ${ mop1.m_ad }</li>
-		<li>skill: ${ mop1.m_skill }</li>
-		<li>level: ${ mop1.m_level }</li>
+		<li>idx: ${ mop.m_idx }</li>
+		<li>name: ${ mop.m_name }</li>
+		<li id="mop_hp">hp: ${ mop.m_hp }</li>
+		<li id="mop_ad">ad: ${ mop.m_ad }</li>
+		<li id="mop_armor">armor: ${ mop.m_armor }</li>
+		<li>skill: ${ mop.m_skill }</li>
+		<li>level: ${ mop.m_level }</li>
 	</ul>
 
 </div>

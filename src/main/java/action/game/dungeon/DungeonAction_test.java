@@ -63,20 +63,20 @@ public class DungeonAction_test extends HttpServlet {
 		System.out.println("c_p_skill: " + main_ch.getC_p_skill());
 		System.out.println("c_img: " + main_ch.getC_img());
 		
-		MopVo mop1 = new MopVo();
+		MopVo mop = new MopVo();
 		///////////////////////////////////////
 		//실험용 몹 정보
-		mop1.setM_idx(1);
-		mop1.setM_name("몬스터1");
-		mop1.setM_level("일반");
-		mop1.setM_hp(100);
-		mop1.setM_ad(20);
-		mop1.setM_armor(10);
-		mop1.setM_skill("몹 스킬");
+		mop.setM_idx(1);
+		mop.setM_name("몬스터1");
+		mop.setM_level("일반");
+		mop.setM_hp(100);
+		mop.setM_ad(20);
+		mop.setM_armor(10);
+		mop.setM_skill("몹 스킬");
 		///////////////////////////////////////
-		application.setAttribute("mop1", mop1);
+		application.setAttribute("mop", mop);
 		application.setAttribute("main_ch", main_ch);
-		request.setAttribute("mop1", mop1);
+		request.setAttribute("mop", mop);
 		request.setAttribute("main_ch", main_ch);
 		
 		//forward
