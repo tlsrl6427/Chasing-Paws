@@ -12,6 +12,8 @@ public class MopVo {
 	String 	m_skill;
 	String 	m_level;
 
+	int damage_reduced = 0;// 받는 피해 감소
+	int damage_reduced_turn = 0;// 받는 피해 감소 턴수
 	int dot_damage = 0;// 도트뎀
 	int dot_damage_turn = 0;// 도트뎀 턴수
 	int cc_turn = 0;
@@ -20,12 +22,57 @@ public class MopVo {
 //	int confusion_cc_turn = 0;// 컨퓨전 cc기 걸린 턴수
 //	int frozen_cc_turn = 0;// 프로즌 cc기 걸린 턴수
 //	
-	public void attack_character(CharacterVo main_ch) {
-		
+	public void attack_character(CharacterVo main_ch, AttackVo attack_main_ch_vo) {
+		attack_main_ch_vo.setDamage(this.m_ad * (5000 / ( 50 + main_ch.getC_armor() ) ) / 100);
+		main_ch.setC_hp(main_ch.getC_hp() - this.m_ad * (5000 / ( 50 + main_ch.getC_armor() ) ) / 100);
+		attack_main_ch_vo.setBattle_info(String.format("%s(이)가 %s에게 %d의 피해를 입혔습니다.", 
+																			this.getM_name(),
+																			main_ch.getC_name(),
+																			this.m_ad * (5000 / ( 50 + main_ch.getC_armor() ) ) / 100));
 	}
 
+	public String extra_skill() {
+		String extra_battle_info = "";
+		
+		if(this.cc_turn!=0) {
+			this.cc_turn--;
+			return "cc";
+		}
+		
+		if(this.dot_damage_turn!=0) {
+			this.dot_damage_turn--;
+			this.m_hp -= this.dot_damage;
+			extra_battle_info = extra_battle_info + String.format("%s가 %d의 도트뎀을 받았습니다", this.m_name, this.getDot_damage());
+		}
+		
+		return extra_battle_info;
+	}
 	
 	
+	public int getDamage_reduced() {
+		return damage_reduced;
+	}
+
+
+
+	public void setDamage_reduced(int damage_reduced) {
+		this.damage_reduced = damage_reduced;
+	}
+
+
+
+	public int getDamage_reduced_turn() {
+		return damage_reduced_turn;
+	}
+
+
+
+	public void setDamage_reduced_turn(int damage_reduced_turn) {
+		this.damage_reduced_turn = damage_reduced_turn;
+	}
+
+
+
 	public int getCc_turn() {
 		return cc_turn;
 	}

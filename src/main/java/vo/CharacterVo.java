@@ -30,6 +30,9 @@ public class CharacterVo {
 	
 	int damage_reduced = 0;// 받는 피해 감소
 	int damage_reduced_turn = 0;// 받는 피해 감소 턴수
+	int dot_damage = 0;// 도트뎀
+	int dot_damage_turn = 0;// 도트뎀 턴수
+	int cc_turn = 0;
 	
 	public void active_skill1(MopVo mopVo, AttackVo attack_mop_vo) {}
 	public void active_skill2(MopVo mopVo, AttackVo attack_mop_vo) {}
@@ -43,6 +46,7 @@ public class CharacterVo {
 	public void attack_mop(MopVo mopVo, AttackVo attack_mop_vo, int s_idx) {
 		
 		SkillVo vo = getSkill_s_idx(s_idx);
+		attack_mop_vo.setName(vo.getS_name());
 		switch(vo.getS_num()) {
 			case 1: active_skill1(mopVo, attack_mop_vo); break;
 			case 2: active_skill2(mopVo, attack_mop_vo); break;
@@ -55,46 +59,6 @@ public class CharacterVo {
 			default: break;
 		}
 		
-		/*
-		if(s_idx==0) {
-			mop.setM_hp(mop.getM_hp() - this.getC_ad() * ( 5000 / ( 50 + mop.getM_armor() ) ));
-			map.put("평타피해", this.getC_ad() * ( 5000 / ( 50 + mop.m_armor ) ));
-		}
-	
-		SkillVo vo = this.getSkill_s_idx(s_idx);//카테고리 구하기위함
-		skill_mapping(s_idx, attack_mop_vo);
-		
-		if(vo.getS_category().equals("damage")){
-			int skill_val = this.skill_mapping(s_idx);// 실제 스킬 함수
-			mop.setM_hp(mop.getM_hp() - skill_val * ( 5000 / ( 50 + mop.getM_armor() ) ) );
-			//map.put("스킬피해", skill_val);
-		}else if(vo.getS_category().equals("buff")){
-			int skill_idx = this.skill_mapping(s_idx);// 실제 스킬 함수
-			
-			map.put("버프", );
-			
-		}else if(vo.getS_category().equals("cc")){
-			int skill_val = main_ch.skill_mapping(s_idx);// 실제 스킬 함수
-			this.cc_turn += skill_val /100000;
-		}else if(vo.getS_category().equals("debuff")){
-			int skill_val = main_ch.skill_mapping(s_idx);// 실제 스킬 함수
-			if(skill_val/10000==1) {//사자후
-				this.m_ad-=skill_val;
-				this.m_armor-=skill_val;
-				map.put("디버프", skill_val);
-			}
-		}else if(vo.getS_category().equals("dot")){
-			this.dot_damage += skill_val%1000;
-			this.dot_damage_turn += skill_val/1000;
-		}
-		
-		//도트뎀
-		if(dot_damage_turn!=0){
-			this.m_hp-=dot_damage;
-			dot_damage_turn--;
-		}
-		return map;
-		*/
 	}
 	
 	public SkillVo getSkill_s_idx(int s_idx) {
@@ -106,8 +70,49 @@ public class CharacterVo {
 		return vo;
 	}
 	
+	public String extra_skill() {
+		String extra_battle_info = "";
+		
+		if(this.cc_turn!=0) {
+			this.cc_turn--;
+			return "cc";
+		}
+		
+		if(this.dot_damage_turn!=0) {
+			this.dot_damage_turn--;
+			this.c_hp -= this.dot_damage;
+			extra_battle_info = extra_battle_info + String.format("%s가 %d의 도트뎀을 받았습니다", this.c_name, this.getDot_damage());
+		}
+		
+		if(this.damage_reduced_turn!=0) {
+			this.damage_reduced_turn--;
+		}else if(this.damage_reduced_turn==0) {
+			this.damage_reduced=0;
+		}
+		
+		
+		return extra_battle_info;
+	}
 	
 	
+	public int getDot_damage() {
+		return dot_damage;
+	}
+	public void setDot_damage(int dot_damage) {
+		this.dot_damage = dot_damage;
+	}
+	public int getDot_damage_turn() {
+		return dot_damage_turn;
+	}
+	public void setDot_damage_turn(int dot_damage_turn) {
+		this.dot_damage_turn = dot_damage_turn;
+	}
+	public int getCc_turn() {
+		return cc_turn;
+	}
+	public void setCc_turn(int cc_turn) {
+		this.cc_turn = cc_turn;
+	}
 	public int getDamage_reduced_turn() {
 		return damage_reduced_turn;
 	}
