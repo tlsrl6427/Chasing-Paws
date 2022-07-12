@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import info.character.Warrior;
-import info.mop.Mop1;
+import info.mop.Mop1_1;
 import vo.AttackVo;
 import vo.MopVo;
 import vo.SkillVo;

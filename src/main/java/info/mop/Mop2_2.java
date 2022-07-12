@@ -4,7 +4,7 @@ import vo.CharacterVo;
 import vo.MopVo;
 import vo.SkillVo;
 
-public class Mop1 extends MopVo{
+public class Mop2_2 extends MopVo{
 	
 	
 }

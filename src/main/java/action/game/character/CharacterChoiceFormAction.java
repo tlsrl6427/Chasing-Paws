@@ -1,26 +1,19 @@
-package action.game.shop;
+package action.game.character;
 
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.CharacterDao;
-import info.character.Archer;
-import info.character.Warrior;
-import info.character.Wizard;
-import vo.CharacterVo;
-
 /**
- * Servlet implementation class ShopAction
+ * Servlet implementation class CharacterChoiceAction
  */
-@WebServlet("/game/shop/shop.do")
-public class ShopAction extends HttpServlet {
+@WebServlet("/game/character/character_choice_form.do")
+public class CharacterChoiceFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -30,17 +23,13 @@ public class ShopAction extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		
-		
-		//아이템 DB에서 랜덤으로 빼서 주고
-		//캐릭터 스킬정보 주기
-		
+		//캐릭터 DB에서 캐릭터 정보 가져오기
+		//캐릭터 이름, 설명, 이미지 경로
 		
 		//forward
-		String forward_page = "shop.jsp";
+		String forward_page = "character_choice.jsp";
 		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
 		disp.forward(request, response);
 	}
 
 }
-

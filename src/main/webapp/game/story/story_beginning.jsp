@@ -10,7 +10,7 @@
 		a++;
 		console.log("a: "+a);
 			$.ajax({
-				url: 'game/character/character_choice.do',
+				url: 'game/character/character_choice_form.do',
 				success: function(res_data){
 					$('#disp').html(res_data);
 				}

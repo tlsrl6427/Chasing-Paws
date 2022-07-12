@@ -17,7 +17,7 @@
 		a++;
 		console.log("a: "+a);
 		$.ajax({
-			url: 'game/dungeon/dungeon.do',
+			url: 'game/dungeon/dungeon_test.do',
 			success: function(res_data){
 				$('#disp').html(res_data);
 			}

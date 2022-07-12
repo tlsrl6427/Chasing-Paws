@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import info.character.Warrior;
-import info.mop.Mop1;
+import info.mop.Mop1_1;
 
 /**
  * Servlet implementation class DungeonAction
@@ -32,7 +32,7 @@ public class DungeonAction extends HttpServlet {
 		ServletContext application = request.getServletContext();
 		Warrior main_ch = (Warrior) application.getAttribute("main_ch");
 		
-		Mop1 mop1 = new Mop1();
+		Mop1_1 mop1 = new Mop1_1();
 		///////////////////////////////////////
 		//실험용 몹 정보
 		mop1.setM_idx(1);

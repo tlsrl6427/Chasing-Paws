@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.CharacterDao;
 import info.character.Warrior;
-import info.mop.Mop1;
+import info.mop.Mop1_1;
 import vo.CharacterVo;
 import vo.MopVo;
 
@@ -33,8 +33,8 @@ public class DungeonAction_test extends HttpServlet {
 		//불러내야할 던전 정보 받아서 해당하는 던전 보내기(정확히는 몹정보)
 		
 		ServletContext application = request.getServletContext();
-//		CharacterVo main_ch = (Warrior) application.getAttribute("main_ch");
 		
+		/*
 		CharacterVo ex_c_vo = CharacterDao.getInstance().selectOne(1);
 		Warrior main_ch = new Warrior();
 		main_ch.setC_idx(ex_c_vo.getC_idx());
@@ -62,7 +62,9 @@ public class DungeonAction_test extends HttpServlet {
 		System.out.println("c_auto_attack: " + main_ch.getC_auto_attack());
 		System.out.println("c_p_skill: " + main_ch.getC_p_skill());
 		System.out.println("c_img: " + main_ch.getC_img());
+		*/
 		
+		CharacterVo main_ch = (CharacterVo) application.getAttribute("main_ch");
 		MopVo mop = new MopVo();
 		///////////////////////////////////////
 		//실험용 몹 정보

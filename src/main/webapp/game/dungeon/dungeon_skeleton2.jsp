@@ -37,21 +37,24 @@
 	function aa(){
 		var auto_attack = 0;
 		$.ajax({
-			url: 'battle/attack.do',
+			url: 'game/dungeon/battle/attack.do',
 			data: {'s_idx': auto_attack},
 			dataType: 'json',
 			success: function(res_data){
-				alert(res_data.main_ch_damage+"의 피해를 입혔습니다");
-				alert(res_data.mop1_damage+"의 피해를 입었습니다");
 				$('#main_ch_hp').html('hp: '+ res_data.main_ch_hp);
 				$('#mop_hp').html('hp: '+ res_data.mop_hp);
+				
+				var content = $("#txt").val();
+				content = content  + res_data.attack_mop_info + "\n"
+											+	res_data.attack_main_ch_info + "\n";
+				$("#txt").html(content); 
 			}
 		})
 	}
 	
 	function skill(s_idx){
 		$.ajax({
-			url: 'battle/attack.do',
+			url: 'game/dungeon/battle/attack.do',
 			data: {'s_idx': s_idx},
 			dataType: 'json',
 			success: function(res_data){

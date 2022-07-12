@@ -45,20 +45,28 @@ public class CharacterVo {
 	
 	public void attack_mop(MopVo mopVo, AttackVo attack_mop_vo, int s_idx) {
 		
-		SkillVo vo = getSkill_s_idx(s_idx);
-		attack_mop_vo.setName(vo.getS_name());
-		switch(vo.getS_num()) {
-			case 1: active_skill1(mopVo, attack_mop_vo); break;
-			case 2: active_skill2(mopVo, attack_mop_vo); break;
-			case 3: active_skill3(mopVo, attack_mop_vo); break;
-			case 4: active_skill4(mopVo, attack_mop_vo); break;
-			case 5: active_skill5(mopVo, attack_mop_vo); break;
-			case 6: active_skill6(mopVo, attack_mop_vo); break;
-			case 7: active_skill7(mopVo, attack_mop_vo); break;
-			case 8: active_skill8(mopVo, attack_mop_vo); break;
-			default: break;
+		if(s_idx==0) {
+			attack_mop_vo.setDamage(this.c_ad * (5000 / ( 50 + mopVo.getM_armor() ) ) / 100);
+			mopVo.setM_hp(mopVo.getM_hp() - this.c_ad * (5000 / ( 50 + mopVo.getM_armor() ) ) / 100);
+			attack_mop_vo.setBattle_info(String.format("%s(이)가 %s에게 %d의 피해를 입혔습니다.", 
+																				this.getC_name(),
+																				mopVo.getM_name(),
+																				this.c_ad * (5000 / ( 50 + mopVo.getM_armor() ) ) / 100));
+		}else {
+			SkillVo vo = getSkill_s_idx(s_idx);
+			attack_mop_vo.setName(vo.getS_name());
+			switch(vo.getS_num()) {
+				case 1: active_skill1(mopVo, attack_mop_vo); break;
+				case 2: active_skill2(mopVo, attack_mop_vo); break;
+				case 3: active_skill3(mopVo, attack_mop_vo); break;
+				case 4: active_skill4(mopVo, attack_mop_vo); break;
+				case 5: active_skill5(mopVo, attack_mop_vo); break;
+				case 6: active_skill6(mopVo, attack_mop_vo); break;
+				case 7: active_skill7(mopVo, attack_mop_vo); break;
+				case 8: active_skill8(mopVo, attack_mop_vo); break;
+				default: break;
+			}
 		}
-		
 	}
 	
 	public SkillVo getSkill_s_idx(int s_idx) {

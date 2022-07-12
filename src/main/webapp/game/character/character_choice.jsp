@@ -7,12 +7,12 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 //선택한 캐릭터 정보 보내기
-	function shop(){
+	function choice(){
 		var c_idx = 1;
 		a++;
 		console.log("a: "+a);
 		$.ajax({
-			url: 'game/shop/shop.do',
+			url: 'game/character/character_choice.do',
 			data: { 'c_idx': c_idx},
 			success: function(res_data){
 				$('#disp').html(res_data);
@@ -28,6 +28,6 @@
 	<input type="radio" name="c_idx" value="2">궁수<br>
 	<input type="radio" name="c_idx" value="3">법사<br>
 </form>
-<button onclick="shop();">선택완료</button>
+<button onclick="choice();">선택완료</button>
 </body>
 </html>
